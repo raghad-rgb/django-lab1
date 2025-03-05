@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2 class="my-4">Update Course</h2>
+
+<form method="post" class="card p-4 shadow-sm">
+    {% csrf_token %}
+    <div class="mb-3">
+        <label class="form-label">Title:</label>
+        <input type="text" name="title" value="{{ course.title }}" class="form-control" required>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Description:</label>
+        <textarea name="description" class="form-control" required>{{ course.description }}</textarea>
+    </div>
+    <button type="submit" class="btn btn-warning">Update Course</button>
+</form>
+
+<a href="{% url 'course_list' %}" class="btn btn-secondary mt-3">Back to List</a>
+{% endblock %}

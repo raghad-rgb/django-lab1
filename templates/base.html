@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}ITIan{% endblock %}</title>
+    
+    {% load static %}
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    
+    <style>
+        .navbar-nav .nav-link {
+            font-size: 18px; 
+            font-weight: bold;
+        }
+        .navbar-brand {
+            margin-right: 50px;
+            font-size: 22px; 
+            font-weight: bold;
+        }
+        .ms-auto-right {
+            margin-left: auto;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="/">ITIan</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'trainee_list' %}">Trainees</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'course_list' %}">Courses</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ms-auto-right">
+                    {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <form method="post" action="{% url 'logout' %}" class="d-inline">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-link nav-link text-danger border-0">Logout</button>
+                        </form>
+                    </li>
+                    {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link text-success" href="{% url 'login' %}">Login</a>
+                    </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        {% block content %}{% endblock %}
+    </div>
+
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+</body>
+</html>

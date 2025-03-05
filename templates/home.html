@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container text-center mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-sm border-0">
+                <div class="card-body p-5">
+                    <h1 class="fw-bold text-primary">Welcome to <span class="text-dark">ITI Benha</span></h1>
+                    <p class="lead text-muted">Select one of the sections from the navigation menu.</p>
+
+                    <div class="mt-4">
+                        <a href="{% url 'trainee_list' %}" class="btn btn-lg btn-primary me-3">
+                            View Trainees
+                        </a>
+                        <a href="{% url 'course_list' %}" class="btn btn-lg btn-success">
+                            View Courses
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-5">
+                <p class="text-muted">Made with ❤️ by <b>Raghad Gamal</b></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
