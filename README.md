@@ -106,7 +106,7 @@ ITlan/
 ### **1️⃣ Clone the Repository**
 ```sh
 git clone https://github.com/raghad-rgb/django-lab1.git
-cd ITlan
+cd django-lab1
 ```
 
 ### **2️⃣ Create a Virtual Environment**
