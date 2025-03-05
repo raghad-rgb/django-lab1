@@ -134,9 +134,6 @@ http://127.0.0.1:8000/
 
 ---
 
-
----
-
 ## 🏆 Credits
 Developed by **Raghad Gamal** ❤️ Using **Django & Bootstrap** for a modern experience.
 
